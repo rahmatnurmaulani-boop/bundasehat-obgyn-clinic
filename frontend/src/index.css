@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-ivory text-clinic-text antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply bg-ivory text-clinic-text selection:bg-rose-soft selection:text-navy;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-navy font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-gold-outline {
+    @apply border border-gold text-gold-dark hover:bg-gold hover:text-white transition-all duration-300;
+  }
+
+  .clinic-card {
+    @apply bg-white rounded-2xl border border-clinic-border shadow-luxury hover:shadow-luxury-hover transition-all duration-300;
+  }
+
+  .badge-maternity {
+    @apply bg-rose-soft text-rose-muted border border-rose-muted/20 font-semibold text-xs tracking-wider uppercase px-3 py-1 rounded-full;
+  }
+
+  .clinic-input {
+    @apply w-full px-4 py-2.5 bg-white border border-clinic-border rounded-xl text-sm text-clinic-text focus:border-navy focus:outline-none focus:ring-1 focus:ring-navy transition-colors duration-200;
+  }
+}
