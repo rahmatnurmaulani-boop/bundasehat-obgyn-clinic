@@ -4,12 +4,15 @@ const fs = require("fs");
 const path = require("path");
 
 async function runMigration() {
+  const isCloud = process.env.DB_HOST && process.env.DB_HOST !== "localhost";
+
   const connection = await mysql.createConnection({
     host: process.env.DB_HOST || "localhost",
     user: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
     port: Number(process.env.DB_PORT) || 3306,
     multipleStatements: true,
+    ssl: isCloud ? { rejectUnauthorized: false } : undefined,
   });
 
   try {
